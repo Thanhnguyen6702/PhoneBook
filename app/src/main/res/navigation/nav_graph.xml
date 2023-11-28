@@ -25,4 +25,15 @@
         android:name="info"
         app:argType="com.example.danh_ba.Person"/>
     </fragment>
+    <fragment
+        android:id="@+id/addUser"
+        android:name="com.example.danh_ba.AddUser"
+        android:label="AddUser"
+        tools:layout="@layout/adduser">
+        <action
+            android:id="@+id/action_addUser_to_fragmentList"
+            app:destination="@id/fragmentList" />
+    </fragment>
+    <action android:id="@+id/activity_to_adduser"
+        app:destination="@id/addUser"/>
 </navigation>

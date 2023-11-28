@@ -1,15 +1,21 @@
 package com.example.danh_ba;
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class Adapter(val list_person: MutableList<Person>,val clickItem: ClickItem): RecyclerView.Adapter<Adapter.ViewHoder_Person>() {
-
+class Adapter( val clickItem: ClickItem): RecyclerView.Adapter<Adapter.ViewHoder_Person>() {
+    private var list_person: MutableList<Person> = mutableListOf()
     interface ClickItem{
         fun clickPerson(person: Person)
+    }
+    @SuppressLint("NotifyDataSetChanged")
+    fun setData(list_person: MutableList<Person>){
+        this.list_person = list_person
+        notifyDataSetChanged()
     }
     inner class ViewHoder_Person(val view:View): RecyclerView.ViewHolder(view){
         val logo = view.findViewById<TextView>(R.id.logo)
